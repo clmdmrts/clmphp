@@ -19,7 +19,7 @@
 
           if ($sorgu2->rowCount()) {
             foreach ($sorgu2 as $satir2) {
-              echo '<a href="sample.php?fotoalt=' . $satir2['fotoalt'] . '" style="font-size:14px;">' . $satir2['baslik'] . '</a><br>';
+              echo '<a href="sample.php?id=' . $satir2['id'] . '" style="font-size:14px;">' . $satir2['baslik'] . '</a><br>';
             }
           }
           ?>
