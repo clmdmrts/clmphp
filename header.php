@@ -49,7 +49,7 @@ if($sorgu -> rowCount()){
                   <a class="nav-link" href="index.php">Ana Sayfa</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="sample.php">Hakkımda</a>
+                  <a class="nav-link" href="hakkimda.php">Hakkımda</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="blog.php">Blog</a>
@@ -59,9 +59,20 @@ if($sorgu -> rowCount()){
                     Hizmetler
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="sample.php">Web Tasarım Hizmeti</a>
-                    <a class="dropdown-item" href="sample.php">Grafik Tasarım Hizmeti</a>
-                    <a class="dropdown-item" href="sample.php">Dijital Pazarlama Hizmeti</a>
+                    <?php 
+                      $sorgu_hizmetmenu = $db -> prepare("select * from sayfalar where sayfaturu = 'altsayfa' order by baslik asc ");
+                      $sorgu_hizmetmenu -> execute();
+
+                      if($sorgu_hizmetmenu -> rowCount()){
+                        foreach($sorgu_hizmetmenu as $satir_hizmetmenu){
+                          ?>
+                            <a class="dropdown-item" href="samplepage.php?id=<?php echo $satir_hizmetmenu['id']; ?>"><?php echo $satir_hizmetmenu['baslik']; ?></a>
+                          <?php
+
+                        }
+                      }
+
+                    ?>
                   </div>
                 </li>
                 <li class="nav-item">

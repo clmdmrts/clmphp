@@ -53,7 +53,15 @@ $yeni_yorum = $sorgu_yorum->fetchColumn();
             <li><a href="ebultenuye.php">E-Bülten Üyeler</a></li>
             <li><a href="sidebar.php">Sidebar Ayarlar</a></li>
             <li><a href="reklam.php">Reklam Ayarları</a></li>
-            <li><a href="ayarlar.php">Ayarlar</a></li>
+            <li>
+              <div class="dropdown">
+                  <a class="btn btn-link dropdown-toggle p-0" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">Ayarlar</a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item text-dark" href="ayarlar.php">Site Ayarları</a></li>
+                    <li><a class="dropdown-item text-dark" href="nitelik.php">Nitelik Ayarları</a></li>
+                  </ul>
+              </div>
+            </li>
             <li><a href="logout.php">Çıkış</a></li>
           </ul>
         </div>
