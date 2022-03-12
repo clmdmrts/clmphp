@@ -13,7 +13,7 @@ if($sorgu -> rowCount()){
 }
 ?>
 
-<section id="blogBanner" class="py-5" style="background-image: url('<?php echo substr($banner,3); ?>'); background-size:cover; background-repeat:no-repeat;">
+<section id="blogBanner" class="py-15" style="background-image: url('<?php echo substr($banner,3); ?>'); background-size:cover; background-repeat:no-repeat;">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 text-center">
