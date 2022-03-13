@@ -18,7 +18,7 @@
                     <div class="form-group">
                         <select name="ikon" class="form-control">
                             <option value="">Seçiniz</option>
-                            <option value="<i class='bi bi-clock'></i>"><i class='bi bi-clock'></i></option>
+                            <option value="<i class='bi bi-clock'></i>">7/24 Teknik Hizmet</i></option>
                             <option value="<i class='bi bi-speedometer'></i>">Hız ve Kalite</option>
                             <option value="<i class='bi bi-info-circle'></i>">Ücretsiz Danışmanlık</option>
                             <option value="<i class='bi bi-shield-check'></i>">Güvenilir Hizmet</option>
@@ -28,6 +28,24 @@
                         <button type="submit" class="btn btn-success">Kaydet</button>
                     </div>
                 </form>
+                <?php 
+                    if($_POST){
+                        $baslik = $_POST['baslik'];
+                        $icerik = $_POST['icerik'];
+                        $ikon = $_POST['ikon'];
+
+                        $sorgu = $db->prepare('insert into ozellikler(baslik,icerik,ikon) values (?,?,?)');
+                        $sorgu -> execute(array($baslik,$icerik,$ikon));
+
+                        if($sorgu -> rowCount()){
+                            echo '<div class="alert alert-success">Kayıt Girildi.</div>';
+                        } else{
+                            echo '<div class="alert alert-danger">Hata Oluştu!</div>';
+                        }
+
+                    }
+                
+                ?>
             </div>
         </div>
     </div>
