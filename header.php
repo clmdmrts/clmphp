@@ -2,11 +2,11 @@
 
 <?php
 
-$sorgu = $db -> prepare('select * from ayarlar order by id desc limit 1');
-$sorgu -> execute();
+$sorgu = $db->prepare('select * from ayarlar order by id desc limit 1');
+$sorgu->execute();
 
-if($sorgu -> rowCount()){
-  foreach($sorgu as $satir){
+if ($sorgu->rowCount()) {
+  foreach ($sorgu as $satir) {
     $logo = $satir['logo'];
   }
 } else {
@@ -39,7 +39,7 @@ if($sorgu -> rowCount()){
       <div class="row">
         <div class="col-12">
           <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="index.php"><img src="<?php echo substr($logo,3); ?>" alt="" class="img-fluid"></a>
+            <a class="navbar-brand" href="index.php"><img src="<?php echo substr($logo, 3); ?>" alt="" class="img-fluid"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -59,19 +59,16 @@ if($sorgu -> rowCount()){
                     Hizmetler
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <?php 
-                      $sorgu_hizmetmenu = $db -> prepare("select * from sayfalar where sayfaturu = 'altsayfa' order by baslik asc ");
-                      $sorgu_hizmetmenu -> execute();
-
-                      if($sorgu_hizmetmenu -> rowCount()){
-                        foreach($sorgu_hizmetmenu as $satir_hizmetmenu){
-                          ?>
-                            <a class="dropdown-item" href="samplepage.php?id=<?php echo $satir_hizmetmenu['id']; ?>"><?php echo $satir_hizmetmenu['baslik']; ?></a>
-                          <?php
-
-                        }
+                    <?php
+                    $sorgu_hizmetmenu = $db->prepare("select * from sayfalar where sayfaturu = 'altsayfa' order by baslik asc");
+                    $sorgu_hizmetmenu->execute();
+                    if ($sorgu_hizmetmenu->rowCount()) {
+                      foreach ($sorgu_hizmetmenu as $satir_hizmetmenu) {
+                    ?>
+                        <a class="dropdown-item" href="samplepage.php?id=<?php echo $satir_hizmetmenu['id']; ?>"><?php echo $satir_hizmetmenu['baslik']; ?></a>
+                    <?php
                       }
-
+                    }
                     ?>
                   </div>
                 </li>

@@ -14,7 +14,7 @@
           <h4>Hizmetler</h4>
 
           <?php
-          $sorgu2 = $db->prepare("select * from sayfalar where sayfaturu = 'altsayfa' order by baslik desc ");
+          $sorgu2 = $db->prepare("select * from sayfalar where sayfaturu = 'altsayfa' order by baslik desc");
           $sorgu2->execute();
 
           if ($sorgu2->rowCount()) {

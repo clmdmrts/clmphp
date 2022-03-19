@@ -2,9 +2,10 @@
     <aside>
         <div class="row">
             <div class="col-12">
-                <?php 
-                $sorgu_reklam = $db->prepare('select * from reklam limit 1');
+                <?php
+                $sorgu_reklam = $db -> prepare('select * from reklam limit 1');
                 $sorgu_reklam -> execute();
+
                 if($sorgu_reklam -> rowCount()){
                     foreach($sorgu_reklam as $satir_reklam){
                         $gorsel = $satir_reklam['gorsel'];
@@ -13,7 +14,7 @@
                     }
                 }
                 ?>
-                <a href="<?php echo $link; ?>" target="_blank"><img src="<?php echo substr($gorsel,3); ?>" alt="" title="<?php echo $firma; ?>" class="img-fluid"></a>
+                <a href="<?php echo $link; ?>" target="_blank"><img src="<?php echo substr($gorsel,3); ?>" alt="" tittle="<?php echo $firma; ?>" class="img-fluid"></a>
             </div>
         </div>
         <div class="row mt-5">

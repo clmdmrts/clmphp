@@ -86,4 +86,5 @@
 </section>
 <!-- Sayfa Ekleme End -->
 
+
 <?php require_once('footer.php'); ?>

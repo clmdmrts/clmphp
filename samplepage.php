@@ -1,18 +1,14 @@
 <?php require_once('header.php'); ?>
 
 <?php
-
-// $sql = "select * from sayfalar where id=".$_GET['id']; -- böylede yazılabilinir.
-// $sorgu_hizmetpage = $db -> $sql; -- böylede yazılabilinir.
-
 $id = $_GET['id'];
-$sorgu_hizmetpage = $db ->prepare('select * from sayfalar where id=?');
+$sorgu_hizmetpage = $db->prepare('select * from sayfalar where id=?');
 $sorgu_hizmetpage->execute(array($id));
 $satir_hizmetpage = $sorgu_hizmetpage->fetch();
-
 ?>
+
 <!-- Banner Section Start -->
-<section id="sampleBanner" class="py-15" style="background-image: url('<?php echo substr($satir_hizmetpage['foto'],3); ?>');">
+<section id="sampleBanner" class="py-15" style="background-image: url('<?php echo substr($satir_hizmetpage['foto'], 3); ?>');">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 text-center">
@@ -24,16 +20,16 @@ $satir_hizmetpage = $sorgu_hizmetpage->fetch();
 <!-- Banner Section End -->
 
 <!-- Content Section Start -->
-<section id="content">
+<section id="content" class="py-5">
     <div class="container">
-        <div class="row py-3">
+        <div class="row">
             <div class="col-12">
-                <h3 class="text-center"><?php echo $satir_hizmetpage['baslik']; ?></h3>
+                <h2><?php echo $satir_hizmetpage['baslik']; ?></h2>
                 <?php echo $satir_hizmetpage['icerik']; ?>
             </div>
         </div>
     </div>
 </section>
-<!-- Content Section Start -->
+<!-- Content Section End -->
 
 <?php require_once('footer.php'); ?>

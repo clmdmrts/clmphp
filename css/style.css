@@ -1,42 +1,41 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
-
-#adminNav ul{
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css");
+#adminNav ul {
     list-style-type: none;
 }
 
-#adminNav ul a{
-    color:#fff;
+#adminNav ul a {
+    color: #fff;
 }
 
-#adminNav li{
+#adminNav li {
     margin-top: 10px;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
 
-.btn-purple{
+.btn-purple {
     background-color: #6c55f9;
-    color:#fff;
+    color: #fff;
 }
 
-.bg-purple{
+.bg-purple {
     background-color: #6c55f9;
 }
 
-#footer a{
-    color:#fff;
+#footer a {
+    color: #fff;
 }
 
-#adslist td{
-    vertical-align: middle ;
+#adslist td {
+    vertical-align: middle;
 }
 
-#sampleBanner{
+#sampleBanner {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
 }
 
-.py-15{
+.py-15 {
     padding-top: 150px;
     padding-bottom: 150px;
 }

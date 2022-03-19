@@ -4,8 +4,8 @@
 
 <?php
 $sorgu_banner = $db->prepare('select * from banner order by id desc limit 1');
-$sorgu_banner -> execute();
-$satir_banner = $sorgu_banner -> fetch();
+$sorgu_banner->execute();
+$satir_banner = $sorgu_banner->fetch();
 ?>
 
 <section id="indexbanner" class="py-5 bg-light">
@@ -14,12 +14,10 @@ $satir_banner = $sorgu_banner -> fetch();
             <div class="col-md-6 my-auto">
                 <h1 class="display-4"><?php echo $satir_banner['baslik']; ?></h1>
                 <p><?php echo $satir_banner['aciklama']; ?></p>
-                <a href="tel:+9<?php echo $satir_banner['telefon']; ?>">
-                    <button class="btn btn-purple">Teklif Alın</button>
-                </a>
+                <a href="tel:+9<?php echo $satir_banner['telefon']; ?>"> <button class="btn btn-purple">Teklif Alın</button> </a>
             </div>
             <div class="col-md-6 text-center">
-                <img src="<?php echo substr($satir_banner['bannerfoto'],3); ?>" alt="<?php echo $satir_banner['fotoalt']; ?>" class="w-75">
+                <img src="<?php echo substr($satir_banner['bannerfoto'], 3); ?>" alt="<?php echo $satir_banner['fotoalt']; ?>" class="w-75">
             </div>
         </div>
     </div>
@@ -27,27 +25,27 @@ $satir_banner = $sorgu_banner -> fetch();
 <!-- Banner Section End -->
 
 <!-- Hizmetler Section Start -->
-<section id="indexhizmetler" class="py-5">
+<section id="indexHizmetler" class="py-5">
     <div class="container">
         <div class="row">
-        <?php
+            <?php
             $sorgu_hizmetler = $db->prepare('select * from sayfalar where kategori = "hizmet" order by baslik desc');
             $sorgu_hizmetler->execute();
 
-            if($sorgu_hizmetler -> rowCount()){
-                foreach($sorgu_hizmetler as $satir_hizmetler){
-                    ?>
-                       <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <img src="<?php echo substr($satir_hizmetler['foto'],3); ?>" alt="<?php echo $satir_hizmetler['fotoalt']; ?>" class="img-fluid"> 
-                                    <h2 class="lead text-center mt-3"><?php echo $satir_hizmetler['baslik']; ?></h2>
-                                    <p><?php echo substr($satir_hizmetler['icerik'],0,100); ?></p>
-                                    <a href="samplepage.php?id=<?php echo $satir_hizmetler['id']; ?>"><button class="btn btn-purple">Daha Fazla Bilgi</button></a>
-                                </div>
-                           </div>
+            if ($sorgu_hizmetler->rowCount()) {
+                foreach ($sorgu_hizmetler as $satir_hizmetler) {
+            ?>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="<?php echo substr($satir_hizmetler['foto'], 3); ?>" alt="<?php echo $satir_hizmetler['fotoalt']; ?>" class="card-img-top">
+                                <h2 class="lead text-center mt-3"><?php echo $satir_hizmetler['baslik']; ?></h2>
+                                <p><?php echo substr($satir_hizmetler['icerik'], 0, 90); ?></p>
+                                <a href="samplepage.php?id=<?php echo $satir_hizmetler['id']; ?>"><button class="btn btn-purple">Daha Fazla Bilgi</button></a>
+                            </div>
                         </div>
-                    <?php
+                    </div>
+            <?php
                 }
             }
             ?>
@@ -56,73 +54,82 @@ $satir_banner = $sorgu_banner -> fetch();
 </section>
 <!-- Hizmetler Section End -->
 
-<!-- Hakkımda Section Start -->
+<!-- Hakkımda Section Start  -->
 <?php
-    $sorgu_hakkimda = $db->prepare('select * from sayfalar where baslik = "Hakkımda" order by id desc limit 1');
-    $sorgu_hakkimda->execute();
-    $satir_hakkimda = $sorgu_hakkimda -> fetch();
+$sorgu_hakkimda = $db->prepare('select * from sayfalar where baslik = "Hakkımda" order by id desc limit 1');
+$sorgu_hakkimda->execute();
+$satir_hakkimda = $sorgu_hakkimda->fetch();
 ?>
-<section id="indexhakkimda" class="py-5">
+<section id="indexHakkimda" class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-6 my-auto">
                 <h3><?php echo $satir_hakkimda['baslik']; ?></h3>
                 <p><?php echo $satir_banner['aciklama']; ?></p>
-                <p><?php echo $satir_hakkimda['icerik'] ?></p>
+                <p><?php echo $satir_hakkimda['icerik']; ?></p>
                 <a href="hakkimda.php"><button class="btn btn-purple">Devamını Okuyun</button></a>
             </div>
             <div class="col-md-6 text-center">
-                <img src="<?php echo substr($satir_hakkimda['foto'],3); ?>" alt="<?php echo $satir_hakkimda['fotoalt']; ?>" class="w-75">
+                <img src="<?php echo substr($satir_hakkimda['foto'], 3); ?>" alt="<?php echo $satir_hakkimda['fotoalt']; ?>" class="w-75">
             </div>
         </div>
     </div>
 </section>
-<!-- Hakkımda Section End -->
+<!-- Hakkımda Section End  -->
 
 <!-- Özellikler Section Start -->
 <section id="ozellikler" class="py-5 bg-light">
     <div class="container">
         <div class="row">
-            <?php 
-                $sorgu_ozellik = $db -> prepare('select * from ozellikler order by id asc limit 4');
-                $sorgu_ozellik -> execute();
 
-                if($sorgu_ozellik -> rowCount()){
-                    foreach($sorgu_ozellik as $satir_ozellik){
-                        ?>
-                            <div class="col-md-3 text-center">
-                                <span style="font-size: 42px;"><?php echo $satir_ozellik['ikon']; ?></span>
-                                <h4 class="text-danger"><?php echo $satir_ozellik['baslik']; ?></h4>
-                                <p><?php echo $satir_ozellik['icerik']; ?></p>
-                            </div>
-                        <?php
-                    }
+            <?php
+
+            $sorgu_ozellik = $db->prepare('select * from ozellikler order by id asc limit 4');
+            $sorgu_ozellik->execute();
+
+            if ($sorgu_ozellik->rowCount()) {
+                foreach ($sorgu_ozellik as $satir_ozellik) {
+            ?>
+                    <div class="col-md-3 text-center">
+                        <span style="font-size:42px;"><?php echo $satir_ozellik['ikon']; ?></span>
+                        <h3 class="lead"><?php echo $satir_ozellik['baslik']; ?></h3>
+                        <p><?php echo $satir_ozellik['icerik']; ?></p>
+                    </div>
+            <?php
                 }
-
+            }
             ?>
         </div>
     </div>
 </section>
 <!-- Özellikler Section End -->
 
-<!-- Seo Önemi Section Start -->
-<section id="seoOnemi" class="py-5">
+<!-- Tanıtım Section Start -->
+<?php
+
+$sorgu_tanitim = $db->prepare('select * from tanitim order by id desc limit 1');
+$sorgu_tanitim -> execute();
+$satir_tanitim = $sorgu_tanitim -> fetch();
+
+
+?>
+<section id="tanitim" class="py-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <h2>Buraya Başlık Gelecek</h2>
-                <p>Blog Yazısının Özeti Gelecek</p>
+            <div class="col-md-6 my-auto">
+                <h2><?php echo $satir_tanitim['baslik']; ?></h2>
+                <p class="text-justify"><?php echo $satir_tanitim['icerik']; ?></p>
             </div>
             <div class="col-md-6">
-                Görsel Gelecek
+                <video src="<?php echo substr($satir_tanitim['yayin'],3); ?>" controls class="w-100"></video>
             </div>
         </div>
     </div>
 </section>
-<!-- Seo Önemi Section End -->
+<!-- Tanıtım Section End -->
 
 <!-- Seo Analiz Section Start -->
-<section id="seoanaliz" class="py-5 bg-purple">
+<section id="seoAnaliz" class="bg-purple py-5">
     <div class="container">
         <div class="row">
             <div class="col-6 mx-auto text-center">
@@ -130,7 +137,7 @@ $satir_banner = $sorgu_banner -> fetch();
                 <form method="post" class="form-row">
                     <div class="col-10">
                         <div class="form-group">
-                            <input type="text" name="webadres" class="form-control" placeholder="Web Sitenizin Adresini Girin">
+                            <input type="text" name="webadres" class="form-control" placeholder="Web Sitenizin Adresiniz Girin">
                         </div>
                     </div>
                     <div class="col-2">
@@ -138,7 +145,6 @@ $satir_banner = $sorgu_banner -> fetch();
                             <button type="submit" class="btn btn-warning">Gönder</button>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>
@@ -147,7 +153,7 @@ $satir_banner = $sorgu_banner -> fetch();
 <!-- Seo Analiz Section End -->
 
 <!-- Blog Section Start -->
-<section id="blog" class="py-5">
+<section id="indexBlog" class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-4">
@@ -163,7 +169,5 @@ $satir_banner = $sorgu_banner -> fetch();
     </div>
 </section>
 <!-- Blog Section End -->
-
-
 
 <?php require_once('footer.php'); ?>

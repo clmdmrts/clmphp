@@ -8,7 +8,7 @@ if (!isset($_SESSION['user'])) {
 
 require_once('baglan.php');
 
-$sorgu_yorum = $db ->prepare('select count(*) from yorumlar where adminonay=0 ');
+$sorgu_yorum = $db->prepare('select count(*) from yorumlar where adminonay=0 ');
 $sorgu_yorum->execute();
 $yeni_yorum = $sorgu_yorum->fetchColumn();
 
@@ -47,12 +47,15 @@ $yeni_yorum = $sorgu_yorum->fetchColumn();
             <li><a href="dashboard.php">Başlangıç</a></li>
             <li>
               <div class="dropdown">
-                  <a class="btn btn-link dropdown-toggle p-0" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">Ana Sayfa</a>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item text-dark" href="banner.php">Banner Düzenle</a></li>
-                    <li><a class="dropdown-item text-dark" href="ozellikler.php">Özellikler</a></li>
-                    <li><a class="dropdown-item text-dark" href="seoanaliz.php">Seo Analiz</a></li>
-                  </ul>
+                <a class="btn btn-link dropdown-toggle p-0" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                  Ana Sayfa
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item text-dark" href="banner.php" >Banner Düzenle</a>
+                  <a class="dropdown-item text-dark" href="ozellikler.php">Özellikler</a>
+                  <a class="dropdown-item text-dark" href="tanitim.php">Tanıtım Alanı</a>
+                  <a class="dropdown-item text-dark" href="seoanaliz.php">Seo Analiz</a>
+                </div>
               </div>
             </li>
             <li><a href="sayfalar.php">Sayfalar</a></li>
@@ -65,13 +68,16 @@ $yeni_yorum = $sorgu_yorum->fetchColumn();
             <li><a href="reklam.php">Reklam Ayarları</a></li>
             <li>
               <div class="dropdown">
-                  <a class="btn btn-link dropdown-toggle p-0" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">Ayarlar</a>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item text-dark" href="ayarlar.php">Site Ayarları</a></li>
-                    <li><a class="dropdown-item text-dark" href="nitelik.php">Nitelik Ayarları</a></li>
-                  </ul>
+                <a class="btn btn-link dropdown-toggle p-0" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                  Ayarlar
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item text-dark" href="ayarlar.php" >Site Ayarları</a>
+                  <a class="dropdown-item text-dark" href="nitelik.php">Nitelik Ayarları</a>
+                </div>
               </div>
             </li>
+
             <li><a href="logout.php">Çıkış</a></li>
           </ul>
         </div>

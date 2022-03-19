@@ -7,7 +7,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <select name="nitelik" class="form-control">
-                        <option value="">Nitelik Seçiniz</option>
+                        <option value="">Nitelik Seç</option>
                         <option value="html">Html</option>
                         <option value="css">Css</option>
                         <option value="bootstrap">Bootstrap</option>
@@ -17,17 +17,18 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="form-group">  
+                <div class="form-group">
                     <input type="text" name="deger" placeholder="Bilgi Derecesini Girin" class="form-control">
                 </div>
             </div>
             <div class="col-md-4">
-                <button type="submit" class="btn btn-success">Kaydet</button>
-            </div>  
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Kaydet</button>
+                </div>
+            </div>
         </form>
     </div>
 </section>
-
 <!-- Nitelik Ayarları Section End -->
 
 <?php require_once('footer.php'); ?>
