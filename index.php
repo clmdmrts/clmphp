@@ -91,7 +91,7 @@ $satir_hakkimda = $sorgu_hakkimda->fetch();
                 foreach ($sorgu_ozellik as $satir_ozellik) {
             ?>
                     <div class="col-md-3 text-center">
-                        <span style="font-size:42px;"><?php echo $satir_ozellik['ikon']; ?></span>
+                        <span style="font-size:42px;"   text-danger"><?php echo $satir_ozellik['ikon']; ?></span>
                         <h3 class="lead"><?php echo $satir_ozellik['baslik']; ?></h3>
                         <p><?php echo $satir_ozellik['icerik']; ?></p>
                     </div>
@@ -135,9 +135,14 @@ $satir_tanitim = $sorgu_tanitim -> fetch();
             <div class="col-6 mx-auto text-center">
                 <h3 class="text-white">Ücretsiz Seo Analizi</h3>
                 <form method="post" class="form-row">
-                    <div class="col-10">
+                    <div class="col-5">
                         <div class="form-group">
-                            <input type="text" name="webadres" class="form-control" placeholder="Web Sitenizin Adresiniz Girin">
+                            <input type="text" name="webadres" class="form-control" placeholder="Web Site Adresiniz">
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="E-Posta Adresiniz">
                         </div>
                     </div>
                     <div class="col-2">
@@ -146,6 +151,21 @@ $satir_tanitim = $sorgu_tanitim -> fetch();
                         </div>
                     </div>
                 </form>
+                <?php 
+                    if($_POST){
+                        $webadres = $_POST['webadres'];
+                        $email = $_POST['email'];
+
+                        $sorgu_seoanaliz = $db -> prepare('insert into seoanaliz(webadres,email) values(?,?)');
+                        $sorgu_seoanaliz -> execute(array($webadres,$email));
+                        
+                        if($sorgu_seoanaliz->rowCount()){
+                            echo '<span class="text-white">Seo Analiz Talebiniz İletilmiştir. Analiz Sonucu Kısa Süre İçinde Mail Adresinize Gönderilecektir.</span>';
+                        }else {
+                            echo '<span class="text-white">Sistemsel Bir Hata Oluştu Lütfen Daha Sonra Tekrar Deneyin.</span>';
+                        }
+                    }
+                ?>
             </div>
         </div>
     </div>
@@ -156,18 +176,29 @@ $satir_tanitim = $sorgu_tanitim -> fetch();
 <section id="indexBlog" class="py-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <a href="" class="text-decoration-none text-dark">
-                    <div class="card">
-                        <img src="" alt="" class="card-img-top">
-                        <h3>Blog Yazısı Başlığı</h3>
-                        <small>Yayınlanma Tarihi: xxxx</small>
-                    </div>
-                </a>
-            </div>
+            <?php 
+                $sorgu_blog = $db -> prepare('select * from yazilar order by id desc limit 3');
+                $sorgu_blog -> execute();
+                if($sorgu_blog -> rowCount()){
+                    foreach ($sorgu_blog as $satir_blog){
+                        ?>
+                            <div class="col-md-4 my-auto">
+                                <a href="sample.php?id=<?php echo $satir_blog['id']; ?>" class="text-decoration-none text-dark">
+                                    <div class="card">
+                                        <img src="<?php echo substr($satir_blog['foto'],3); ?>" alt="<?php echo $satir_blog['meta']; ?>" class="card-img-top">
+                                        <h3 style="font-size:18px"><?php echo $satir_blog['baslik']; ?></h3>
+                                        <small>Yayınlanma Tarihi:<?php echo $satir_blog['tarih']; ?></small>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php
+                    }
+                }
+            ?>
         </div>
     </div>
 </section>
 <!-- Blog Section End -->
 
 <?php require_once('footer.php'); ?>
+

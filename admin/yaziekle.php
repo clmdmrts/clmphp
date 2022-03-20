@@ -78,7 +78,8 @@
                         $query->execute(array($yuklenecekfoto, $baslik, $icerik, $meta, $durum, $kategori, $seotitle, $tarih));
 
                         if ($query->rowCount()) {
-                            echo '<div class="alert alert-success text-center">Yazı Eklendi</div>';
+                            echo '<div class="alert alert-success text-center">Yazı Eklendi</div>
+                            <meta http-equiv="refresh" content="2; url=yazilar.php">';
                         } else {
                             echo '<div class="alert alert-danger text-center">Hata Oluştu</div>';
                         }
