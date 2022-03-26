@@ -121,7 +121,7 @@ $satir_tanitim = $sorgu_tanitim -> fetch();
                 <p class="text-justify"><?php echo $satir_tanitim['icerik']; ?></p>
             </div>
             <div class="col-md-6">
-                <video src="<?php echo substr($satir_tanitim['yayin'],3); ?>" controls class="w-100"></video>
+                <img src="<?php echo substr($satir_tanitim['yayin'],3); ?>" class="w-100">
             </div>
         </div>
     </div>
