@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 20 Mar 2022, 11:30:07
+-- Üretim Zamanı: 27 Mar 2022, 11:23:56
 -- Sunucu sürümü: 5.7.31
 -- PHP Sürümü: 7.3.21
 
@@ -219,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `ozellikler` (
   `icerik` varchar(150) NOT NULL,
   `ikon` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Tablo döküm verisi `ozellikler`
@@ -229,7 +229,8 @@ INSERT INTO `ozellikler` (`id`, `baslik`, `icerik`, `ikon`) VALUES
 (1, '7/24 Teknik Hizmet', 'Tüm Teknik Destek İhtiyaçlarınız İçin 7/24 Hizmetinizdeyim', '<i class=\'bi bi-clock\'></i>'),
 (2, 'Hızlı ve Kaliteli Hizmet', 'Tüm Dijital Süreçlerde Hızlı ve Kaliteli Hizmet Alacaksınız', '<i class=\'bi bi-speedometer\'></i>'),
 (3, 'Ücretsiz Danışmanlık', 'Dijital Projeleriniz Hakkında Ücretsiz Olarak Danışmanlık Alabilirsiniz', '<i class=\'bi bi-info-circle\'></i>'),
-(4, 'Güvenilir Hizmet', 'Proje Süreçlerinde Karşılıklı Anlaşmaya Tam Uyumlu Hizmet', '<i class=\'bi bi-shield-check\'></i>');
+(4, 'Güvenilir Hizmet', 'Proje Süreçlerinde Karşılıklı Anlaşmaya Tam Uyumlu Hizmet', '<i class=\'bi bi-shield-check\'></i>'),
+(7, 'yeni özellik', 'yenilik iyidir', '<i class=\'bi bi-speedometer\'></i>');
 
 -- --------------------------------------------------------
 
@@ -325,16 +326,43 @@ CREATE TABLE IF NOT EXISTS `tanitim` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `baslik` varchar(150) NOT NULL,
   `icerik` varchar(500) NOT NULL,
-  `yayin` varchar(80) NOT NULL,
+  `yayin` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Tablo döküm verisi `tanitim`
 --
 
 INSERT INTO `tanitim` (`id`, `baslik`, `icerik`, `yayin`) VALUES
-(4, 'Barış Manço - Aynalı Kemer', 'Çılgın Yazılımcılardan Bir Barış Manço Klasiği\r\n\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, veniam unde exercitationem est sequi nihil nobis excepturi sint animi quia voluptatem dolor repellat totam ipsum necessitatibus quasi quis odit explicabo inventore optio voluptate! Officiis, molestiae. Quos, cum architecto dicta eius ut, sit officiis suscipit amet tempore odio voluptatem at reprehenderit.\r\n', '../img/tanitimvideo2.mp4');
+(5, 'Barış Manço - Aynalı Kemer', 'Çılgın Yazılımcılardan Bir Barış Manço Klasiği Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, veniam unde exercitationem est sequi nihil nobis excepturi sint animi quia voluptatem dolor repellat totam ipsum necessitatibus quasi quis odit explicabo inventore optio voluptate! Officiis, molestiae. Quos, cum architecto dicta eius ut, sit officiis suscipit amet tempore odio voluptatem at reprehenderit.', '../img/barısmanco.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `uyeol`
+--
+
+DROP TABLE IF EXISTS `uyeol`;
+CREATE TABLE IF NOT EXISTS `uyeol` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ad` varchar(100) NOT NULL,
+  `telefon` varchar(12) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `adres` varchar(250) NOT NULL,
+  `dtarih` varchar(11) NOT NULL,
+  `kadi` varchar(50) NOT NULL,
+  `sifre1` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `uyeol`
+--
+
+INSERT INTO `uyeol` (`id`, `ad`, `telefon`, `email`, `adres`, `dtarih`, `kadi`, `sifre1`) VALUES
+(1, 'Yılmaz Vural', '05555', 'kemal@vural.com', 'dasdasdas', '2022-03-27', 'vuraly', '123'),
+(2, 'Yıldız Tilbe', '02221112233', 'tilbe@yildiz.com', 'dsakldaljdalkdnsakdna', '2022-03-06', 'yildizlarca', '321123');
 
 -- --------------------------------------------------------
 

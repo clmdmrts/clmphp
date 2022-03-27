@@ -17,7 +17,7 @@ if($sorgu -> rowCount()){
 
 
 <!-- İletişim Banner Section Start -->
-<section id="iletisimBanner" class="py-5" style="background-image: url('<?php echo substr($banner,3); ?>'); background-size:cover; background-repeat:no-repeat;">
+<section id="iletisimBanner" class="py-15" style="background-image: url('<?php echo substr($banner,3); ?>'); background-size:cover; background-repeat:no-repeat;">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 text-center">
