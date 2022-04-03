@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 27 Mar 2022, 11:23:56
+-- Üretim Zamanı: 03 Nis 2022, 11:34:35
 -- Sunucu sürümü: 5.7.31
 -- PHP Sürümü: 7.3.21
 
@@ -151,6 +151,37 @@ INSERT INTO `ebulten` (`id`, `ebulten`) VALUES
 (2, 'hakan@gmail.com'),
 (3, 'aysel@gmail.com'),
 (4, 'cilginsedat@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `gzt`
+--
+
+DROP TABLE IF EXISTS `gzt`;
+CREATE TABLE IF NOT EXISTS `gzt` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `baslik` varchar(200) NOT NULL,
+  `icerik` text NOT NULL,
+  `kaynak` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `gzt`
+--
+
+INSERT INTO `gzt` (`id`, `baslik`, `icerik`, `kaynak`) VALUES
+(1, 'Ağlama hastalığına yakalandı kör oldu... Yaşadıklarını tek tek anlattı', 'Bayburt Memnune Evsen Huzurevi Yaşlı Bakım ve Rehabilitasyon Merkezi\'nde yaşayan  görme engelli Tevhik Celep ahşapları oyarak, manda, keçi, koyun, horoz, ayı gibi çeşitli hayvanların figürlerini yapıyor. Annesinin ölümünden sonra ağlama hastalığına yaklanan ve 2 sene sonra gözlerini kaybeden Celep yaşadığı zorlukları anlattı.', 'http://www.hurriyet.com.tr/rss/gundem'),
+(2, 'Ankara\'da kahreden olay! Kavgayı ayırmak isterken canından oldu', 'ANKARA\'da Etlik Zübeyde Hanım Kadın Hastalıkları Eğitim ve Araştırma Hastanesi\'nde laboratuvar bölümünde memur olan İbrahim Aktaş (50), evinin önündeki parkta 2 grup arasında çıkan kavgayı ayırmak isterken kalp krizi geçirerek hayatını kaybetti.', 'http://www.hurriyet.com.tr/rss/gundem'),
+(3, 'Yaşlılara kâbusu yaşattı! Battaniyeye saklanırken yakalandı... Cevabı şaşırttı', 'İstanbul, İzmir, Denizli ve Eskişehir’de son 5 yılda 9 yaşlı çifti bakıcı gibi yaklaşıp uyku ilacı vererek soyan kadın hırsız, son işinin ardından izini süren JASAT’ın ‘Narkoz’ operasyonuyla saklandığı evinde yakalandı. Kesinleşmiş 14 yıl hapis cezasıyla aranan sabıkalı kadının battaniyenin içinde ne yaptığını soran jandarmaya, “Korktuğum için saklanıyorum” cevabı ise şaşırttı.', 'http://www.hurriyet.com.tr/rss/gundem'),
+(4, 'Uçaklarda maske takmak ya da takmamak... \'Gelişmiş havalandırma var ama...\'', 'Dünyanın pek çok yerinde pandemi kuralları esnerken yeni bir madde daha gündeme geldi; uçaklarda maske kurallarının kaldırılması... İngiltere ve Danimarka\'da bazı havayolu şirketleri maske zorunluluğunu askıya aldı. Kimisi kararı çok olumlu karşılarken kimi yolcular ise karardan mutsuz. Peki uzmanlar bu konuya nasıl bakıyor?', 'http://www.hurriyet.com.tr/rss/gundem'),
+(5, 'İstanbul Boğazı\'nda paniğe neden olmuştu! Nefes kesen anlar... Böyle patlatıldı', 'Milli Savunma Bakanlığı, Karadeniz’de sürüklenen mayın tehdidine karşı Deniz Kuvvetleri Komutanlığı\'nın aldığı önlemlerin yer aldığı görüntüleri paylaştı.', 'http://www.hurriyet.com.tr/rss/gundem'),
+(6, 'Taksiler boş olmasına rağmen almadı, o anları görüntüledi, taksiciler tepki gösterdi', 'İstanbul Beyazıt’ta bir kişi, sadece turistleri aldığını iddia ettiği taksileri görüntüleyince taksiciler tarafından saldırıya uğradı. Hiçbir taksiye gündüz boş olmasına rağmen binemeyen kişi, tepki gösterdi. ', 'http://www.hurriyet.com.tr/rss/gundem'),
+(7, 'Knidos kazılarında sürpriz keşif', 'MUĞLA\'nın Datça ilçesinde, yaklaşık 3 bin yıllık tarihi geçmişe sahip olan Knidos Antik Kenti\'nde devam eden arkeolojik kazılarda, Emeviler Dönemi’ne ait mermer ve kireç taşından dört kitabe bulundu.', 'http://www.hurriyet.com.tr/rss/gundem'),
+(8, '3 aylık bebeğin beynini saran tümör temizlendi', 'ANKARA\'da 3 aylık Mehmet Asaf Kılıç bebeğin beyninin yarısını saran tümör, yaklaşık 9 saat süren ameliyatla temizlendi. Beyin ve Sinir Cerrahisi Uzmanı Doç. Dr. Cahit Kural, \"Bu çok nadir görülen bir tümör. Beyni bu kadar dolduran tümör görmek, çoğu zaman mümkün değil. Tümörün hepsini çıkardığımız için kemoterapi düşünmüyoruz\" dedi.', 'http://www.hurriyet.com.tr/rss/gundem'),
+(9, 'Sürmene sahiline 2 ölü yunus daha vurdu', 'Trabzon\'un Sürmene ilçesi sahiline geçen hafta kayalığa vuran ölü yunusun ardından aynı sahilin kumsalında 2 ölü yunus daha görüldü.', 'http://www.hurriyet.com.tr/rss/gundem'),
+(10, '\'Yengeme kötü davranıyorsun\' diyerek kardeşini vurdu', 'İstanbul Avcılar\'da iddiaya göre yengesine kötü davranmakla suçlayan bir kişi, kardeşini silahla vurdu. Soner Gündoğdu (52) bacağından yaralanırken, saldırıyı gerçekleştiren Metiner Gündoğdu (57) gözaltına alındı.', 'http://www.hurriyet.com.tr/rss/gundem');
 
 -- --------------------------------------------------------
 
@@ -314,6 +345,30 @@ INSERT INTO `seoanaliz` (`id`, `webadres`, `email`, `puan`) VALUES
 (1, 'www.aribilgi.com', 'cilem@cilem.com', 63),
 (2, 'www.onedio.com', 'kaan@gmail.com', 80),
 (3, 'www.hurriyet.com', 'selim@fatih.com', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `slider`
+--
+
+DROP TABLE IF EXISTS `slider`;
+CREATE TABLE IF NOT EXISTS `slider` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `foto` varchar(150) NOT NULL,
+  `baslik` varchar(100) NOT NULL,
+  `metin` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `slider`
+--
+
+INSERT INTO `slider` (`id`, `foto`, `baslik`, `metin`) VALUES
+(4, '../img/blog-3.jpg', 'Dijital Pazarlama Hizmeti', 'Dijital Dünyada Yer Almak İçin Dijital Pazarlama Hizmeti En Hızlı Çözümünüz Olacak'),
+(2, '../img/blog-1.jpg', 'Web Tasarım Hizmeti', 'En Güncel Kod Yapısı İle Seo Uyumlu Web Sitesi Projeleri'),
+(3, '../img/blog-2.jpg', 'Grafik Tasarım Hizmeti', 'En Yeni Tasarım Trendleriyle Tüm Kurumsal Kimlik Çalışmaları');
 
 -- --------------------------------------------------------
 
